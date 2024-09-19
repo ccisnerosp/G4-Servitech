@@ -2,6 +2,7 @@ package com.example.avancetf.dtos;
 
 import com.example.avancetf.Entities.Cliente;
 import com.example.avancetf.Entities.Pago;
+import com.example.avancetf.Entities.Servicio;
 import com.example.avancetf.Entities.Tecnico;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -18,7 +19,7 @@ public class SolicitudServicioDTO {
     private Double precioFinal;
     private String estado;
     private Boolean eliminado;
-    private Tecnico tecnico;
+    private Servicio servicio;
     private Cliente cliente;
     private Pago pago;
 }

@@ -22,7 +22,7 @@ public class SolicitudServicio {
     @Column(unique = true)
     private LocalDate fechaSolicitud;
     private String descripcionProblema;
-    private Long descuento;
+    private Double precioFinal;
     private String estado;
     private Boolean eliminado;
     @ManyToOne
