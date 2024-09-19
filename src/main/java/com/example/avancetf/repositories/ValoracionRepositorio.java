@@ -10,6 +10,7 @@ import java.util.List;
 
 public interface ValoracionRepositorio extends JpaRepository<Valoracion, Long> {
     List<Valoracion> findByTecnicoId(Long id);
-    @Query("select new com.example.avancetf.dtos.CountTecnicosPorCalificacionDTO(v.tecnico.usuario.nombres, v.tecnico.descripcion, v.calificacion) from Valoracion v where v.calificacion =:calificacion group by v.calificacion")
+    @Query("select new com.example.avancetf.dtos.CountTecnicosPorCalificacionDTO(v.tecnico.usuario.nombres, v.tecnico.descripcion, v.calificacion) " +
+            "from Valoracion v where v.calificacion =:calificacion group by v.calificacion")
     List<CountTecnicosPorCalificacionDTO> filtrarTecnicosPorCalificacion(@Param("calificacion") Double calificacion);
 }

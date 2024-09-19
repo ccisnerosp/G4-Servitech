@@ -1,6 +1,7 @@
 package com.example.avancetf.serviceimpl;
 
 import com.example.avancetf.Entities.Valoracion;
+import com.example.avancetf.dtos.CountTecnicosPorCalificacionDTO;
 import com.example.avancetf.service.ValoracionService;
 import com.example.avancetf.repositories.ValoracionRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,11 @@ public class ValoracionServiceImpl implements ValoracionService {
     @Override
     public List<Valoracion> findByTecnicoId(Long id) {
         return valoracionRepositorio.findByTecnicoId(id);
+    }
+
+    @Override
+    public List<CountTecnicosPorCalificacionDTO> filtrarTecnicosPorCalificacion(Double calificacion) {
+        return valoracionRepositorio.filtrarTecnicosPorCalificacion(calificacion);
     }
 
 }

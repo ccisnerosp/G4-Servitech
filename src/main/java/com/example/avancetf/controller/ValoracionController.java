@@ -1,6 +1,7 @@
 package com.example.avancetf.controller;
 
 import com.example.avancetf.Entities.Valoracion;
+import com.example.avancetf.dtos.CountTecnicosPorCalificacionDTO;
 import com.example.avancetf.dtos.ValoracionDTO;
 import com.example.avancetf.service.ValoracionService;
 import org.modelmapper.ModelMapper;
@@ -31,6 +32,11 @@ public class ValoracionController {
         return listaDTO;
     }
 
+    @GetMapping("/filtrarTecnicosPorCalificacion/{calificacion}")
+    public List<CountTecnicosPorCalificacionDTO> countTecnicosPorCalificacion(@PathVariable Double calificacion) {
+        return valoracionService.filtrarTecnicosPorCalificacion(calificacion);
+    }
+
     @PutMapping("/valoracion")
     public ValoracionDTO modificarValoracion(@RequestBody ValoracionDTO ValoracionDTO) {
         ModelMapper modelMapper = new ModelMapper();
@@ -45,4 +51,5 @@ public class ValoracionController {
         Valoracion valoracion = modelMapper.map(ValoracionDTO, Valoracion.class);
         valoracionService.eliminarValoracion(valoracion.getId());
     }
+
 }
