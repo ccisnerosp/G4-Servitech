@@ -1,11 +1,11 @@
 package com.example.avancetf.serviceimpl;
 
 import com.example.avancetf.Entities.Servicio;
-import com.example.avancetf.Entities.Servicio;
-import com.example.avancetf.negocio.ServicioService;
+import com.example.avancetf.service.ServicioService;
 import com.example.avancetf.repositories.ServicioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -15,6 +15,7 @@ public class ServicioServiceImpl implements ServicioService {
     @Autowired
     private ServicioRepositorio servicioRepositorio;
 
+    @Transactional
     @Override
     public Servicio insertarServicio(Servicio servicio) {
         return servicioRepositorio.save(servicio);
@@ -37,6 +38,6 @@ public class ServicioServiceImpl implements ServicioService {
 
     @Override
     public List<Servicio> listarServicios() {
-        return servicioRepositorio.findAll();
+        return servicioRepositorio.findByEliminadoFalse();
     }
 }

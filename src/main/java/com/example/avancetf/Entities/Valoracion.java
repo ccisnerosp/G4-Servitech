@@ -17,14 +17,15 @@ public class Valoracion {
     private Long id;
     @Column(unique = true)
     private String comentario;
-    private Float calificacion;
+    private String tipo;
+    private Double calificacion;
     private String fecha;
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
     @ManyToOne
-    @JoinColumn(name = "servicio_id")
-    private Servicio servicio;
+    @JoinColumn(name = "tecnico_id")
+    private Tecnico tecnico;
 
 }

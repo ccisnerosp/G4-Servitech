@@ -21,8 +21,6 @@ public class ClienteDTO {
     private Long id;
     private String historialServicios;
     private Usuario usuario;
-    private List<Valoracion> valoraciones = new ArrayList<>();
-    private List<SolicitudServicio> solicitudes = new ArrayList<>();
 
 
 }

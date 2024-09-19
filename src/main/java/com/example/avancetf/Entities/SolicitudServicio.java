@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 
 @Entity
 @Data
@@ -18,18 +20,18 @@ public class SolicitudServicio {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(unique = true)
-    private String fechaSolicitud;
-    private String fechaServicio;
+    private LocalDate fechaSolicitud;
+    private String descripcionProblema;
     private Long descuento;
     private String estado;
     private Boolean eliminado;
     @ManyToOne
-    @JoinColumn(name = "tecnico_id")
-    private Tecnico tecnico;
+    @JoinColumn(name = "Servicio_id")
+    private Servicio servicio;
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "pago_id")
     private Pago pago;
 }

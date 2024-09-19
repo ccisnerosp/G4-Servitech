@@ -19,18 +19,15 @@ import java.util.List;
 public class Tecnico {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true, nullable = false)
     private String especialidad;
     private String descripcion;
     private String horario;
     private Boolean eliminado;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "usuario_id")
-    @JsonBackReference
     private Usuario usuario;
-    @OneToMany(mappedBy = "tecnico", cascade = CascadeType.ALL)
-    @JsonManagedReference("tecnico_servicios")
-    private List<Servicio> servicios = new ArrayList<>();
 
 }

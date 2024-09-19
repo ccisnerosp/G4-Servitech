@@ -16,20 +16,16 @@ import java.util.List;
 @AllArgsConstructor
 public class Servicio {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(unique = true)
     private String descripcion;
     private String tipo;
-    private float costo;
+    private Double costo;
     private String estado;
     private Boolean eliminado;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "tecnico_id")
-    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name = "Tecnico_id")
     private Tecnico tecnico;
 
-    @OneToMany(mappedBy = "servicio", cascade = CascadeType.ALL)
-    @JsonManagedReference("servicio_valoracion")
-    private List<Valoracion> valoraciones = new ArrayList<>();
 }

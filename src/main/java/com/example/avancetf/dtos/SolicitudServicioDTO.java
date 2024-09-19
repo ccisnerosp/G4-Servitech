@@ -14,8 +14,8 @@ import lombok.RequiredArgsConstructor;
 public class SolicitudServicioDTO {
     private Long id;
     private String fechaSolicitud;
-    private String fechaServicio;
-    private Long descuento;
+    private String descripcionProblema;
+    private Double precioFinal;
     private String estado;
     private Boolean eliminado;
     private Tecnico tecnico;

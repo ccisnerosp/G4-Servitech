@@ -1,10 +1,11 @@
 package com.example.avancetf.serviceimpl;
 
 import com.example.avancetf.Entities.Tecnico;
-import com.example.avancetf.negocio.TecnicoService;
+import com.example.avancetf.service.TecnicoService;
 import com.example.avancetf.repositories.TecnicoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ public class TecnicoServiceImpl implements TecnicoService {
     @Autowired
     private TecnicoRepositorio tecnicoRepositorio;
 
+    @Transactional
     @Override
     public Tecnico insertarTecnico(Tecnico tecnico) {
         return tecnicoRepositorio.save(tecnico);
@@ -35,7 +37,7 @@ public class TecnicoServiceImpl implements TecnicoService {
 
     @Override
     public List<Tecnico> listarTecnicos() {
-        return tecnicoRepositorio.findAll();
+        return tecnicoRepositorio.findByUsuarioEliminadoFalse();
     }
 
 }

@@ -21,5 +21,4 @@ public class TecnicoDTO {
     private String horario;
     private Boolean eliminado;
     private Usuario usuario;
-    private List<Servicio> servicios = new ArrayList<>();
 }

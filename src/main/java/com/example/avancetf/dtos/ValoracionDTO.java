@@ -2,6 +2,7 @@ package com.example.avancetf.dtos;
 
 import com.example.avancetf.Entities.Cliente;
 import com.example.avancetf.Entities.Servicio;
+import com.example.avancetf.Entities.Tecnico;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class ValoracionDTO {
     private Long id;
     private String comentario;
-    private Float calificacion;
+    private Double calificacion;
     private Cliente cliente;
-    private Servicio servicio;
+    private Tecnico tecnico;
 }

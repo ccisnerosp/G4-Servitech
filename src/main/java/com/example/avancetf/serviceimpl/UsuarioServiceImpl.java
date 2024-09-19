@@ -1,10 +1,12 @@
 package com.example.avancetf.serviceimpl;
 
 import com.example.avancetf.Entities.Usuario;
-import com.example.avancetf.negocio.UsuarioService;
+import com.example.avancetf.service.UsuarioService;
 import com.example.avancetf.repositories.UsuarioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -13,8 +15,8 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Autowired
     private UsuarioRepositorio usuarioRepositorio;
-    @Override
-    public Usuario insertarUsuario(Usuario usuario) {
+    @Transactional
+    public Usuario insertarUsuario(@RequestBody Usuario usuario) {
         return usuarioRepositorio.save(usuario);
     }
 
@@ -35,7 +37,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public List<Usuario> listarUsuarios() {
-        return usuarioRepositorio.findAll();
+        return usuarioRepositorio.findByEliminadoFalse();
     }
 
 }

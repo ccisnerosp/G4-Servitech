@@ -1,7 +1,7 @@
 package com.example.avancetf.controller;
 import com.example.avancetf.Entities.Tecnico;
 import com.example.avancetf.dtos.TecnicoDTO;
-import com.example.avancetf.negocio.TecnicoService;
+import com.example.avancetf.service.TecnicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.modelmapper.ModelMapper;

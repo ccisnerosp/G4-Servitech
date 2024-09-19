@@ -1,4 +1,4 @@
-package com.example.avancetf.negocio;
+package com.example.avancetf.service;
 
 import com.example.avancetf.Entities.Cliente;
 
@@ -9,4 +9,5 @@ public interface ClienteService {
     public void eliminarCliente(Long  id);
     public Cliente modificarCliente(Cliente cliente);
     public List<Cliente> listarClientes();
+    
     }

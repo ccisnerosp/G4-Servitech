@@ -1,10 +1,11 @@
 package com.example.avancetf.serviceimpl;
 
 import com.example.avancetf.Entities.Valoracion;
-import com.example.avancetf.negocio.ValoracionService;
+import com.example.avancetf.service.ValoracionService;
 import com.example.avancetf.repositories.ValoracionRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ import java.util.List;
 public class ValoracionServiceImpl implements ValoracionService {
     @Autowired
     private ValoracionRepositorio valoracionRepositorio;
+    @Transactional
     @Override
     public Valoracion insertarValoracion(Valoracion valoracion) {
         return valoracionRepositorio.save(valoracion);
@@ -36,6 +38,11 @@ public class ValoracionServiceImpl implements ValoracionService {
     @Override
     public List<Valoracion> listarValoracions() {
         return valoracionRepositorio.findAll();
+    }
+
+    @Override
+    public List<Valoracion> findByTecnicoId(Long id) {
+        return valoracionRepositorio.findByTecnicoId(id);
     }
 
 }

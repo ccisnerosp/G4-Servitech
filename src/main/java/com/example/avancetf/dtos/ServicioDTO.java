@@ -19,9 +19,8 @@ public class ServicioDTO{
     private Long id;
     private String descripcion;
     private String tipo;
-    private float costo;
+    private Double costo;
     private String estado;
     private Boolean eliminado;
     private Tecnico tecnico;
-    private List<Valoracion> valoraciones = new ArrayList<>();
 }
