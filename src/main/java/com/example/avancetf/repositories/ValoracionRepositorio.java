@@ -14,5 +14,4 @@ public interface ValoracionRepositorio extends JpaRepository<Valoracion, Long> {
             "from Valoracion v where v.calificacion =:calificacion " +
             "group by v.tecnico.usuario.nombres, v.tecnico.descripcion, v.calificacion")
     List<CountTecnicosPorCalificacionDTO> filtrarTecnicosPorCalificacion(@Param("calificacion") Double calificacion);
-
-}
+    }

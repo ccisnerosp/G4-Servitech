@@ -9,5 +9,4 @@ public interface ClienteService {
     public void eliminarCliente(Long  id);
     public Cliente modificarCliente(Cliente cliente);
     public List<Cliente> listarClientes();
-    
     }
